@@ -1,0 +1,3848 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://academico.espoch.edu.ec/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://academico.espoch.edu.ec/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://academico.espoch.edu.ec/">
+      <s:element name="GetDatosUsuarioCarrera">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDatosUsuarioCarreraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDatosUsuarioCarreraResult" type="tns:Persona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Persona">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellidos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombres" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="credentials" type="tns:credentials" />
+      <s:complexType name="credentials">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDatosEstudianteMatriculado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDatosEstudianteMatriculadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDatosEstudianteMatriculadoResult" type="tns:Persona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMateriasEstudiante">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodPeriodo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMateriasEstudianteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMateriasEstudianteResult" type="tns:ArrayOfMateria" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMateria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Materia" nillable="true" type="tns:Materia" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Materia">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMateriasParaleloEstudiante">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodPeriodo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMateriasParaleloEstudianteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMateriasParaleloEstudianteResult" type="tns:ArrayOfMateriaParalelo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMateriaParalelo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MateriaParalelo" nillable="true" type="tns:MateriaParalelo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MateriaParalelo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Paralelo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMateriasDocente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodPeriodo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMateriasDocenteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMateriasDocenteResult" type="tns:ArrayOfMateria" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDatosMateria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodMateria" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDatosMateriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDatosMateriaResult" type="tns:Materia" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDictadosMateria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodMateria" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDictadosMateriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDictadosMateriaResult" type="tns:ArrayOfDictado_Materia" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDictado_Materia">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Dictado_Materia" nillable="true" type="tns:Dictado_Materia" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Dictado_Materia">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CodNivel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionNivel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Paralelo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Docente" type="tns:Persona" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUltimasNotasEstudianteCarrera">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUltimasNotasEstudianteCarreraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUltimasNotasEstudianteCarreraResult" type="tns:ArrayOfNotas" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfNotas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Notas" nillable="true" type="tns:Notas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Notas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CodMateria" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Materia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodNivel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodParalelo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumMatricula" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="Acumulado" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="Principal" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="Suspension" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" name="Equivalencia" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Asistencia" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" name="Periodo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDatosCompletosEstudiante">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDatosCompletosEstudianteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDatosCompletosEstudianteResult" type="tns:Estudiante" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Estudiante">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombres" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellidos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CedMilitar" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaNac" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LugarNac" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nacionalidad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadoCivil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Padre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Madre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ciudad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Provincia" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetInscripcionesEstudiante">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInscripcionesEstudianteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInscripcionesEstudianteResult" type="tns:ArrayOfInscripcion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInscripcion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Inscripcion" nillable="true" type="tns:Inscripcion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Inscripcion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Facultad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Escuela" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodCarrera" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Carrera" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Periodo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Forma" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetInscripcionesEstudianteNoActivados">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInscripcionesEstudianteNoActivadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInscripcionesEstudianteNoActivadosResult" type="tns:ArrayOfInscripcion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDatosMatricula">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCodPeriodo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDatosMatriculaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDatosMatriculaResult" type="tns:Matricula" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Matricula">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Orden" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodEstudiante" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodNivel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nivel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Autorizacion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMallaCurricularPensumVigente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pensum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMallaCurricularPensumVigenteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMallaCurricularPensumVigenteResult" type="tns:ArrayOfMateria_Pensum" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pensum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMateria_Pensum">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Materia_Pensum" nillable="true" type="tns:Materia_Pensum" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Materia_Pensum">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CodMateria" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Materia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodNivel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nivel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Creditos" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="HorasTeoricas" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HorasPracticas" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Requisitos" type="tns:ArrayOfMateria_Requisito" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMateria_Requisito">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Materia_Requisito" nillable="true" type="tns:Materia_Requisito" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Materia_Requisito">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CodMateria" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Materia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodTipo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tipo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMallaCurricularPensumVigenteSinDescripcion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMallaCurricularPensumVigenteSinDescripcionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMallaCurricularPensumVigenteSinDescripcionResult" type="tns:ArrayOfMateria_Pensum" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEstadoEstudianteCarrera">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEstadoEstudianteCarreraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEstadoEstudianteCarreraResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGradosEstudiante">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGradosEstudianteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGradosEstudianteResult" type="tns:ArrayOfDatosGrado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDatosGrado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DatosGrado" nillable="true" type="tns:DatosGrado" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DatosGrado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CodInstitucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Institucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodTipoInstitucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoInstitucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Titulo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Profesional" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaGrado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodCiudad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ciudad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodProvincia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Provincia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodPais" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pais" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localidad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Jornada" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetHorariosDocente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCodPeriodo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHorariosDocenteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHorariosDocenteResult" type="tns:ArrayOfHorarioClase" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHorarioClase">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HorarioClase" nillable="true" type="tns:HorarioClase" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HorarioClase">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CodMateria" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Materia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodDia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Dia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Inicio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fin" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMateriasAprobadas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMateriasAprobadasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMateriasAprobadasResult" type="tns:ArrayOfMaterias_aprobadas" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMaterias_aprobadas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Materias_aprobadas" nillable="true" type="tns:Materias_aprobadas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Materias_aprobadas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CodNivel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nivel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodMateria" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Materia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumMatricula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Asistencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FormaAprobacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Acumulado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nota" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Total" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creditos" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetConvalidaciones">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConvalidacionesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetConvalidacionesResult" type="tns:ArrayOfConvalidacion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfConvalidacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Convalidacion" nillable="true" type="tns:Convalidacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Convalidacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Materia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Resolucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodForma" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMateriasNoAprobadas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMateriasNoAprobadasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMateriasNoAprobadasResult" type="tns:ArrayOfMaterias_no_aprobadas" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMaterias_no_aprobadas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="materias_no_aprobadas" nillable="true" type="tns:materias_no_aprobadas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="materias_no_aprobadas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CodNivel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nivel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodMateria" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Materia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creditos" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPromocionesEstudiante">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPromocionesEstudianteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPromocionesEstudianteResult" type="tns:ArrayOfPromocionesEst" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPromocionesEst">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PromocionesEst" nillable="true" type="tns:PromocionesEst" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PromocionesEst">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CodPeriodo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Periodo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaPeriodo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodMateria" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Materia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodNivel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodParalelo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumMatricula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Acumulado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Principal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PromCiclo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Suspencion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Total" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Equivalencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Asistencia" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTitulosEstudiante">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTitulosEstudianteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTitulosEstudianteResult" type="tns:ArrayOfTitulosEst" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTitulosEst">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TitulosEst" nillable="true" type="tns:TitulosEst" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TitulosEst">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Titulo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodEstudiante" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombres" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellidos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodTitulo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetActaGradoEstudiante">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCodTitulo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActaGradoEstudianteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActaGradoEstudianteResult" type="tns:Acta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Acta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TextoActa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Numero" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetParametrosCarrera">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetParametrosCarreraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetParametrosCarreraResult" type="tns:ParamCarrera" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ParamCarrera">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Residencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Modalidad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NivelSuperior" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SisAprobacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SisEvaluacion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetInfoGeneralGradoEstudiante">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCodTitulo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInfoGeneralGradoEstudianteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInfoGeneralGradoEstudianteResult" type="tns:ActaCalGrado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ActaCalGrado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FormaGrado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Titulo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PromedioE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PromedioO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PorcentajeO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PromedioRA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PorcentajeRA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Total" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetEvaluacionesEscritasGrado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCodTitulo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEvaluacionesEscritasGradoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEvaluacionesEscritasGradoResult" type="tns:ArrayOfActaNotasEscritasGrado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfActaNotasEscritasGrado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ActaNotasEscritasGrado" nillable="true" type="tns:ActaNotasEscritasGrado" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ActaNotasEscritasGrado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FuncionMiembro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Evaluacion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetEvaluacionesOralGrado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCodTitulo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEvaluacionesOralGradoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEvaluacionesOralGradoResult" type="tns:ArrayOfActasNotasOralesGrado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfActasNotasOralesGrado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ActasNotasOralesGrado" nillable="true" type="tns:ActasNotasOralesGrado" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ActasNotasOralesGrado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FuncionMiembro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Evaluacion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAlumnosMateria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCodNivel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCodParalelo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCodPeriodo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCodMateria" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAlumnosMateriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAlumnosMateriaResult" type="tns:ArrayOfEstudiante" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEstudiante">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Estudiante" nillable="true" type="tns:Estudiante" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMateriasEstudianteCreditos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodPeriodo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMateriasEstudianteCreditosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMateriasEstudianteCreditosResult" type="tns:ArrayOfMateriasCre" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMateriasCre">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MateriasCre" nillable="true" type="tns:MateriasCre" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MateriasCre">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="strCodigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="bytNumMat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="fltCreditos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="bytHorasTeo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="bytHorasPrac" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strCodEstado" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="dtFechaCreada" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetHorarioDocente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHorarioDocenteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHorarioDocenteResult" type="tns:ArrayOfHorarioDocente" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHorarioDocente">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HorarioDocente" nillable="true" type="tns:HorarioDocente" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HorarioDocente">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="strCodHora" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strDescripcionHora" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strInicioFinHora" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strLunes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strMartes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strMiercoles" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strJueves" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strViernes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strSabado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strDomingo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTitulosDocentes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTitulosDocentesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTitulosDocentesResult" type="tns:ArrayOfTitulosDocente" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTitulosDocente">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TitulosDocente" nillable="true" type="tns:TitulosDocente" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TitulosDocente">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strNombres" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strApellidos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strCodigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strDescripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetHorarioEstudiante">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHorarioEstudianteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHorarioEstudianteResult" type="tns:ArrayOfHorarioEstudiante" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHorarioEstudiante">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HorarioEstudiante" nillable="true" type="tns:HorarioEstudiante" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HorarioEstudiante">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="strCodHora" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strDescripcionHora" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strInicioFinHora" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strLunes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strMartes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strMiercoles" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strJueves" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strViernes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strSabado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strDomingo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTodasMatriculaEstudiantes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCodPeriodo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTodasMatriculaEstudiantesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTodasMatriculaEstudiantesResult" type="tns:ArrayOfTodasMatriculaEstudiantes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTodasMatriculaEstudiantes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TodasMatriculaEstudiantes" nillable="true" type="tns:TodasMatriculaEstudiantes" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TodasMatriculaEstudiantes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombres" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellidos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nacionalidad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodEstado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaAutorizada" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AutorizadaPor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreadaPor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaCreada" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodNivel" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetHorarioExamenesEstudiante">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCodPeriodo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHorarioExamenesEstudianteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHorarioExamenesEstudianteResult" type="tns:ArrayOfHorarioExamenesEstudiante" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHorarioExamenesEstudiante">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HorarioExamenesEstudiante" nillable="true" type="tns:HorarioExamenesEstudiante" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HorarioExamenesEstudiante">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="strCodMateria" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dtFechaExPrinc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dtFechaExSusp" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTitulosCarrera">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTitulosCarreraResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTitulosCarreraResult" type="tns:ArrayOfCarreraTitulos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCarreraTitulos">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CarreraTitulos" nillable="true" type="tns:CarreraTitulos" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CarreraTitulos">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CodTitulo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Titulo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDatosDocente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDatosDocenteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDatosDocenteResult" type="tns:Docente" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Docente">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellidos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Estado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodTipoDocente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoDocente" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDatosInscInstSexo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strPeriodo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDatosInscInstSexoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDatosInscInstSexoResult" type="tns:ArrayOfDatosInscritosInstSexo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDatosInscritosInstSexo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DatosInscritosInstSexo" nillable="true" type="tns:DatosInscritosInstSexo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DatosInscritosInstSexo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Institucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Genero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadoCivil" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetParametrosCarreraTotal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetParametrosCarreraTotalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetParametrosCarreraTotalResult" type="tns:ArrayOfParametro" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfParametro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Parametro" nillable="true" type="tns:Parametro" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Parametro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="strCodigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strValor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strDescrip" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMateriasReprobados">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strcedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMateriasReprobadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMateriasReprobadosResult" type="tns:ArrayOfMateriasR" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMateriasR">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MateriasR" nillable="true" type="tns:MateriasR" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MateriasR">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="strCodigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strNombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="dtFechaCreada" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="dtFechaElim" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="blnActiva" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCreditosAprobadosCS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCreditosAprobadosCSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCreditosAprobadosCSResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHorariosDocenteParalelo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCodPeriodo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHorariosDocenteParaleloResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHorariosDocenteParaleloResult" type="tns:ArrayOfHorarioClaseParalelo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHorarioClaseParalelo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HorarioClaseParalelo" nillable="true" type="tns:HorarioClaseParalelo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HorarioClaseParalelo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:HorarioClase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="strCodParalelo" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetInscripcionGratuidad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInscripcionGratuidadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInscripcionGratuidadResult" type="tns:InscripcionGratuidad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InscripcionGratuidad">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strCodCarrera" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Periodo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="confirmada" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Forma" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="booGratuidad" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="boolPorcentajeP" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Persona" nillable="true" type="tns:Persona" />
+      <s:element name="ArrayOfMateria" nillable="true" type="tns:ArrayOfMateria" />
+      <s:element name="ArrayOfMateriaParalelo" nillable="true" type="tns:ArrayOfMateriaParalelo" />
+      <s:element name="Materia" nillable="true" type="tns:Materia" />
+      <s:element name="ArrayOfDictado_Materia" nillable="true" type="tns:ArrayOfDictado_Materia" />
+      <s:element name="ArrayOfNotas" nillable="true" type="tns:ArrayOfNotas" />
+      <s:element name="Estudiante" nillable="true" type="tns:Estudiante" />
+      <s:element name="ArrayOfInscripcion" nillable="true" type="tns:ArrayOfInscripcion" />
+      <s:element name="Matricula" nillable="true" type="tns:Matricula" />
+      <s:element name="ArrayOfMateria_Pensum" nillable="true" type="tns:ArrayOfMateria_Pensum" />
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="ArrayOfDatosGrado" nillable="true" type="tns:ArrayOfDatosGrado" />
+      <s:element name="ArrayOfHorarioClase" nillable="true" type="tns:ArrayOfHorarioClase" />
+      <s:element name="ArrayOfMaterias_aprobadas" nillable="true" type="tns:ArrayOfMaterias_aprobadas" />
+      <s:element name="ArrayOfConvalidacion" nillable="true" type="tns:ArrayOfConvalidacion" />
+      <s:element name="ArrayOfMaterias_no_aprobadas" nillable="true" type="tns:ArrayOfMaterias_no_aprobadas" />
+      <s:element name="ArrayOfPromocionesEst" nillable="true" type="tns:ArrayOfPromocionesEst" />
+      <s:element name="ArrayOfTitulosEst" nillable="true" type="tns:ArrayOfTitulosEst" />
+      <s:element name="Acta" nillable="true" type="tns:Acta" />
+      <s:element name="ParamCarrera" nillable="true" type="tns:ParamCarrera" />
+      <s:element name="ActaCalGrado" nillable="true" type="tns:ActaCalGrado" />
+      <s:element name="ArrayOfActaNotasEscritasGrado" nillable="true" type="tns:ArrayOfActaNotasEscritasGrado" />
+      <s:element name="ArrayOfActasNotasOralesGrado" nillable="true" type="tns:ArrayOfActasNotasOralesGrado" />
+      <s:element name="ArrayOfEstudiante" nillable="true" type="tns:ArrayOfEstudiante" />
+      <s:element name="ArrayOfMateriasCre" nillable="true" type="tns:ArrayOfMateriasCre" />
+      <s:element name="ArrayOfHorarioDocente" nillable="true" type="tns:ArrayOfHorarioDocente" />
+      <s:element name="ArrayOfTitulosDocente" nillable="true" type="tns:ArrayOfTitulosDocente" />
+      <s:element name="ArrayOfHorarioEstudiante" nillable="true" type="tns:ArrayOfHorarioEstudiante" />
+      <s:element name="ArrayOfTodasMatriculaEstudiantes" nillable="true" type="tns:ArrayOfTodasMatriculaEstudiantes" />
+      <s:element name="ArrayOfHorarioExamenesEstudiante" nillable="true" type="tns:ArrayOfHorarioExamenesEstudiante" />
+      <s:element name="ArrayOfCarreraTitulos" nillable="true" type="tns:ArrayOfCarreraTitulos" />
+      <s:element name="Docente" nillable="true" type="tns:Docente" />
+      <s:element name="ArrayOfDatosInscritosInstSexo" nillable="true" type="tns:ArrayOfDatosInscritosInstSexo" />
+      <s:element name="ArrayOfParametro" nillable="true" type="tns:ArrayOfParametro" />
+      <s:element name="ArrayOfMateriasR" nillable="true" type="tns:ArrayOfMateriasR" />
+      <s:element name="double" type="s:double" />
+      <s:element name="ArrayOfHorarioClaseParalelo" nillable="true" type="tns:ArrayOfHorarioClaseParalelo" />
+      <s:element name="InscripcionGratuidad" nillable="true" type="tns:InscripcionGratuidad" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDatosUsuarioCarreraSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDatosUsuarioCarrera" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosUsuarioCarreraSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDatosUsuarioCarreraResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosUsuarioCarreracredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosEstudianteMatriculadoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDatosEstudianteMatriculado" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosEstudianteMatriculadoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDatosEstudianteMatriculadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosEstudianteMatriculadocredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasEstudianteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMateriasEstudiante" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasEstudianteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMateriasEstudianteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasEstudiantecredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasParaleloEstudianteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMateriasParaleloEstudiante" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasParaleloEstudianteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMateriasParaleloEstudianteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasParaleloEstudiantecredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasDocenteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMateriasDocente" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasDocenteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMateriasDocenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasDocentecredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosMateriaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDatosMateria" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosMateriaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDatosMateriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosMateriacredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetDictadosMateriaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDictadosMateria" />
+  </wsdl:message>
+  <wsdl:message name="GetDictadosMateriaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDictadosMateriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDictadosMateriacredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetUltimasNotasEstudianteCarreraSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUltimasNotasEstudianteCarrera" />
+  </wsdl:message>
+  <wsdl:message name="GetUltimasNotasEstudianteCarreraSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUltimasNotasEstudianteCarreraResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUltimasNotasEstudianteCarreracredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosCompletosEstudianteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDatosCompletosEstudiante" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosCompletosEstudianteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDatosCompletosEstudianteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosCompletosEstudiantecredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetInscripcionesEstudianteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInscripcionesEstudiante" />
+  </wsdl:message>
+  <wsdl:message name="GetInscripcionesEstudianteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInscripcionesEstudianteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInscripcionesEstudiantecredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetInscripcionesEstudianteNoActivadosSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInscripcionesEstudianteNoActivados" />
+  </wsdl:message>
+  <wsdl:message name="GetInscripcionesEstudianteNoActivadosSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInscripcionesEstudianteNoActivadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInscripcionesEstudianteNoActivadoscredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosMatriculaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDatosMatricula" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosMatriculaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDatosMatriculaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosMatriculacredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetMallaCurricularPensumVigenteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMallaCurricularPensumVigente" />
+  </wsdl:message>
+  <wsdl:message name="GetMallaCurricularPensumVigenteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMallaCurricularPensumVigenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMallaCurricularPensumVigentecredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetMallaCurricularPensumVigenteSinDescripcionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMallaCurricularPensumVigenteSinDescripcion" />
+  </wsdl:message>
+  <wsdl:message name="GetMallaCurricularPensumVigenteSinDescripcionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMallaCurricularPensumVigenteSinDescripcionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMallaCurricularPensumVigenteSinDescripcioncredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetEstadoEstudianteCarreraSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEstadoEstudianteCarrera" />
+  </wsdl:message>
+  <wsdl:message name="GetEstadoEstudianteCarreraSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEstadoEstudianteCarreraResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEstadoEstudianteCarreracredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetGradosEstudianteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGradosEstudiante" />
+  </wsdl:message>
+  <wsdl:message name="GetGradosEstudianteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGradosEstudianteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGradosEstudiantecredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetHorariosDocenteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHorariosDocente" />
+  </wsdl:message>
+  <wsdl:message name="GetHorariosDocenteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHorariosDocenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHorariosDocentecredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasAprobadasSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMateriasAprobadas" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasAprobadasSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMateriasAprobadasResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasAprobadascredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetConvalidacionesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetConvalidaciones" />
+  </wsdl:message>
+  <wsdl:message name="GetConvalidacionesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetConvalidacionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetConvalidacionescredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasNoAprobadasSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMateriasNoAprobadas" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasNoAprobadasSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMateriasNoAprobadasResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasNoAprobadascredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetPromocionesEstudianteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPromocionesEstudiante" />
+  </wsdl:message>
+  <wsdl:message name="GetPromocionesEstudianteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPromocionesEstudianteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPromocionesEstudiantecredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetTitulosEstudianteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTitulosEstudiante" />
+  </wsdl:message>
+  <wsdl:message name="GetTitulosEstudianteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTitulosEstudianteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTitulosEstudiantecredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetActaGradoEstudianteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActaGradoEstudiante" />
+  </wsdl:message>
+  <wsdl:message name="GetActaGradoEstudianteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActaGradoEstudianteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActaGradoEstudiantecredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetParametrosCarreraSoapIn">
+    <wsdl:part name="parameters" element="tns:GetParametrosCarrera" />
+  </wsdl:message>
+  <wsdl:message name="GetParametrosCarreraSoapOut">
+    <wsdl:part name="parameters" element="tns:GetParametrosCarreraResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetParametrosCarreracredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoGeneralGradoEstudianteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInfoGeneralGradoEstudiante" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoGeneralGradoEstudianteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInfoGeneralGradoEstudianteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoGeneralGradoEstudiantecredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetEvaluacionesEscritasGradoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEvaluacionesEscritasGrado" />
+  </wsdl:message>
+  <wsdl:message name="GetEvaluacionesEscritasGradoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEvaluacionesEscritasGradoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEvaluacionesEscritasGradocredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetEvaluacionesOralGradoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEvaluacionesOralGrado" />
+  </wsdl:message>
+  <wsdl:message name="GetEvaluacionesOralGradoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEvaluacionesOralGradoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEvaluacionesOralGradocredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetAlumnosMateriaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAlumnosMateria" />
+  </wsdl:message>
+  <wsdl:message name="GetAlumnosMateriaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAlumnosMateriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAlumnosMateriacredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasEstudianteCreditosSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMateriasEstudianteCreditos" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasEstudianteCreditosSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMateriasEstudianteCreditosResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasEstudianteCreditoscredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetHorarioDocenteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHorarioDocente" />
+  </wsdl:message>
+  <wsdl:message name="GetHorarioDocenteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHorarioDocenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHorarioDocentecredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetTitulosDocentesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTitulosDocentes" />
+  </wsdl:message>
+  <wsdl:message name="GetTitulosDocentesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTitulosDocentesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTitulosDocentescredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetHorarioEstudianteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHorarioEstudiante" />
+  </wsdl:message>
+  <wsdl:message name="GetHorarioEstudianteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHorarioEstudianteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHorarioEstudiantecredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetTodasMatriculaEstudiantesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTodasMatriculaEstudiantes" />
+  </wsdl:message>
+  <wsdl:message name="GetTodasMatriculaEstudiantesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTodasMatriculaEstudiantesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTodasMatriculaEstudiantescredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetHorarioExamenesEstudianteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHorarioExamenesEstudiante" />
+  </wsdl:message>
+  <wsdl:message name="GetHorarioExamenesEstudianteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHorarioExamenesEstudianteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHorarioExamenesEstudiantecredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetTitulosCarreraSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTitulosCarrera" />
+  </wsdl:message>
+  <wsdl:message name="GetTitulosCarreraSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTitulosCarreraResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTitulosCarreracredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosDocenteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDatosDocente" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosDocenteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDatosDocenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosDocentecredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosInscInstSexoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDatosInscInstSexo" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosInscInstSexoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDatosInscInstSexoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosInscInstSexocredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetParametrosCarreraTotalSoapIn">
+    <wsdl:part name="parameters" element="tns:GetParametrosCarreraTotal" />
+  </wsdl:message>
+  <wsdl:message name="GetParametrosCarreraTotalSoapOut">
+    <wsdl:part name="parameters" element="tns:GetParametrosCarreraTotalResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetParametrosCarreraTotalcredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasReprobadosSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMateriasReprobados" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasReprobadosSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMateriasReprobadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasReprobadoscredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetCreditosAprobadosCSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCreditosAprobadosCS" />
+  </wsdl:message>
+  <wsdl:message name="GetCreditosAprobadosCSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCreditosAprobadosCSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCreditosAprobadosCScredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetHorariosDocenteParaleloSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHorariosDocenteParalelo" />
+  </wsdl:message>
+  <wsdl:message name="GetHorariosDocenteParaleloSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHorariosDocenteParaleloResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHorariosDocenteParalelocredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetInscripcionGratuidadSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInscripcionGratuidad" />
+  </wsdl:message>
+  <wsdl:message name="GetInscripcionGratuidadSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInscripcionGratuidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInscripcionGratuidadcredentials">
+    <wsdl:part name="credentials" element="tns:credentials" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosUsuarioCarreraHttpGetIn">
+    <wsdl:part name="CodCarrera" type="s:string" />
+    <wsdl:part name="Cedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosUsuarioCarreraHttpGetOut">
+    <wsdl:part name="Body" element="tns:Persona" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosEstudianteMatriculadoHttpGetIn">
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosEstudianteMatriculadoHttpGetOut">
+    <wsdl:part name="Body" element="tns:Persona" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasEstudianteHttpGetIn">
+    <wsdl:part name="CodCarrera" type="s:string" />
+    <wsdl:part name="Cedula" type="s:string" />
+    <wsdl:part name="CodPeriodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasEstudianteHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMateria" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasParaleloEstudianteHttpGetIn">
+    <wsdl:part name="CodCarrera" type="s:string" />
+    <wsdl:part name="Cedula" type="s:string" />
+    <wsdl:part name="CodPeriodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasParaleloEstudianteHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMateriaParalelo" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasDocenteHttpGetIn">
+    <wsdl:part name="CodCarrera" type="s:string" />
+    <wsdl:part name="Cedula" type="s:string" />
+    <wsdl:part name="CodPeriodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasDocenteHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMateria" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosMateriaHttpGetIn">
+    <wsdl:part name="CodCarrera" type="s:string" />
+    <wsdl:part name="CodMateria" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosMateriaHttpGetOut">
+    <wsdl:part name="Body" element="tns:Materia" />
+  </wsdl:message>
+  <wsdl:message name="GetDictadosMateriaHttpGetIn">
+    <wsdl:part name="CodCarrera" type="s:string" />
+    <wsdl:part name="CodMateria" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDictadosMateriaHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDictado_Materia" />
+  </wsdl:message>
+  <wsdl:message name="GetUltimasNotasEstudianteCarreraHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUltimasNotasEstudianteCarreraHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfNotas" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosCompletosEstudianteHttpGetIn">
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosCompletosEstudianteHttpGetOut">
+    <wsdl:part name="Body" element="tns:Estudiante" />
+  </wsdl:message>
+  <wsdl:message name="GetInscripcionesEstudianteHttpGetIn">
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInscripcionesEstudianteHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfInscripcion" />
+  </wsdl:message>
+  <wsdl:message name="GetInscripcionesEstudianteNoActivadosHttpGetIn">
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInscripcionesEstudianteNoActivadosHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfInscripcion" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosMatriculaHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+    <wsdl:part name="strCodPeriodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosMatriculaHttpGetOut">
+    <wsdl:part name="Body" element="tns:Matricula" />
+  </wsdl:message>
+  <wsdl:message name="GetMallaCurricularPensumVigenteSinDescripcionHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMallaCurricularPensumVigenteSinDescripcionHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMateria_Pensum" />
+  </wsdl:message>
+  <wsdl:message name="GetEstadoEstudianteCarreraHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEstadoEstudianteCarreraHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGradosEstudianteHttpGetIn">
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGradosEstudianteHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDatosGrado" />
+  </wsdl:message>
+  <wsdl:message name="GetHorariosDocenteHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+    <wsdl:part name="strCodPeriodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHorariosDocenteHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfHorarioClase" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasAprobadasHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasAprobadasHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMaterias_aprobadas" />
+  </wsdl:message>
+  <wsdl:message name="GetConvalidacionesHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetConvalidacionesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfConvalidacion" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasNoAprobadasHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasNoAprobadasHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMaterias_no_aprobadas" />
+  </wsdl:message>
+  <wsdl:message name="GetPromocionesEstudianteHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPromocionesEstudianteHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPromocionesEst" />
+  </wsdl:message>
+  <wsdl:message name="GetTitulosEstudianteHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTitulosEstudianteHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTitulosEst" />
+  </wsdl:message>
+  <wsdl:message name="GetActaGradoEstudianteHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+    <wsdl:part name="strCodTitulo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetActaGradoEstudianteHttpGetOut">
+    <wsdl:part name="Body" element="tns:Acta" />
+  </wsdl:message>
+  <wsdl:message name="GetParametrosCarreraHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetParametrosCarreraHttpGetOut">
+    <wsdl:part name="Body" element="tns:ParamCarrera" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoGeneralGradoEstudianteHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+    <wsdl:part name="strCodTitulo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoGeneralGradoEstudianteHttpGetOut">
+    <wsdl:part name="Body" element="tns:ActaCalGrado" />
+  </wsdl:message>
+  <wsdl:message name="GetEvaluacionesEscritasGradoHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+    <wsdl:part name="strCodTitulo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEvaluacionesEscritasGradoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfActaNotasEscritasGrado" />
+  </wsdl:message>
+  <wsdl:message name="GetEvaluacionesOralGradoHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+    <wsdl:part name="strCodTitulo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEvaluacionesOralGradoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfActasNotasOralesGrado" />
+  </wsdl:message>
+  <wsdl:message name="GetAlumnosMateriaHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCodNivel" type="s:string" />
+    <wsdl:part name="strCodParalelo" type="s:string" />
+    <wsdl:part name="strCodPeriodo" type="s:string" />
+    <wsdl:part name="strCodMateria" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAlumnosMateriaHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEstudiante" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasEstudianteCreditosHttpGetIn">
+    <wsdl:part name="CodCarrera" type="s:string" />
+    <wsdl:part name="Cedula" type="s:string" />
+    <wsdl:part name="CodPeriodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasEstudianteCreditosHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMateriasCre" />
+  </wsdl:message>
+  <wsdl:message name="GetHorarioDocenteHttpGetIn">
+    <wsdl:part name="CodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHorarioDocenteHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfHorarioDocente" />
+  </wsdl:message>
+  <wsdl:message name="GetTitulosDocentesHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTitulosDocentesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTitulosDocente" />
+  </wsdl:message>
+  <wsdl:message name="GetHorarioEstudianteHttpGetIn">
+    <wsdl:part name="CodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHorarioEstudianteHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfHorarioEstudiante" />
+  </wsdl:message>
+  <wsdl:message name="GetTodasMatriculaEstudiantesHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCodPeriodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTodasMatriculaEstudiantesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTodasMatriculaEstudiantes" />
+  </wsdl:message>
+  <wsdl:message name="GetHorarioExamenesEstudianteHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCodPeriodo" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHorarioExamenesEstudianteHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfHorarioExamenesEstudiante" />
+  </wsdl:message>
+  <wsdl:message name="GetTitulosCarreraHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTitulosCarreraHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCarreraTitulos" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosDocenteHttpGetIn">
+    <wsdl:part name="CodCarrera" type="s:string" />
+    <wsdl:part name="Cedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosDocenteHttpGetOut">
+    <wsdl:part name="Body" element="tns:Docente" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosInscInstSexoHttpGetIn">
+    <wsdl:part name="strPeriodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosInscInstSexoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDatosInscritosInstSexo" />
+  </wsdl:message>
+  <wsdl:message name="GetParametrosCarreraTotalHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetParametrosCarreraTotalHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfParametro" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasReprobadosHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strcedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasReprobadosHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMateriasR" />
+  </wsdl:message>
+  <wsdl:message name="GetCreditosAprobadosCSHttpGetIn">
+    <wsdl:part name="CodCarrera" type="s:string" />
+    <wsdl:part name="Cedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCreditosAprobadosCSHttpGetOut">
+    <wsdl:part name="Body" element="tns:double" />
+  </wsdl:message>
+  <wsdl:message name="GetHorariosDocenteParaleloHttpGetIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+    <wsdl:part name="strCodPeriodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHorariosDocenteParaleloHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfHorarioClaseParalelo" />
+  </wsdl:message>
+  <wsdl:message name="GetInscripcionGratuidadHttpGetIn">
+    <wsdl:part name="strCedula" type="s:string" />
+    <wsdl:part name="strCodCarrera" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInscripcionGratuidadHttpGetOut">
+    <wsdl:part name="Body" element="tns:InscripcionGratuidad" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosUsuarioCarreraHttpPostIn">
+    <wsdl:part name="CodCarrera" type="s:string" />
+    <wsdl:part name="Cedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosUsuarioCarreraHttpPostOut">
+    <wsdl:part name="Body" element="tns:Persona" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosEstudianteMatriculadoHttpPostIn">
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosEstudianteMatriculadoHttpPostOut">
+    <wsdl:part name="Body" element="tns:Persona" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasEstudianteHttpPostIn">
+    <wsdl:part name="CodCarrera" type="s:string" />
+    <wsdl:part name="Cedula" type="s:string" />
+    <wsdl:part name="CodPeriodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasEstudianteHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMateria" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasParaleloEstudianteHttpPostIn">
+    <wsdl:part name="CodCarrera" type="s:string" />
+    <wsdl:part name="Cedula" type="s:string" />
+    <wsdl:part name="CodPeriodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasParaleloEstudianteHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMateriaParalelo" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasDocenteHttpPostIn">
+    <wsdl:part name="CodCarrera" type="s:string" />
+    <wsdl:part name="Cedula" type="s:string" />
+    <wsdl:part name="CodPeriodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasDocenteHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMateria" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosMateriaHttpPostIn">
+    <wsdl:part name="CodCarrera" type="s:string" />
+    <wsdl:part name="CodMateria" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosMateriaHttpPostOut">
+    <wsdl:part name="Body" element="tns:Materia" />
+  </wsdl:message>
+  <wsdl:message name="GetDictadosMateriaHttpPostIn">
+    <wsdl:part name="CodCarrera" type="s:string" />
+    <wsdl:part name="CodMateria" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDictadosMateriaHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDictado_Materia" />
+  </wsdl:message>
+  <wsdl:message name="GetUltimasNotasEstudianteCarreraHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUltimasNotasEstudianteCarreraHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfNotas" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosCompletosEstudianteHttpPostIn">
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosCompletosEstudianteHttpPostOut">
+    <wsdl:part name="Body" element="tns:Estudiante" />
+  </wsdl:message>
+  <wsdl:message name="GetInscripcionesEstudianteHttpPostIn">
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInscripcionesEstudianteHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfInscripcion" />
+  </wsdl:message>
+  <wsdl:message name="GetInscripcionesEstudianteNoActivadosHttpPostIn">
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInscripcionesEstudianteNoActivadosHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfInscripcion" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosMatriculaHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+    <wsdl:part name="strCodPeriodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosMatriculaHttpPostOut">
+    <wsdl:part name="Body" element="tns:Matricula" />
+  </wsdl:message>
+  <wsdl:message name="GetMallaCurricularPensumVigenteSinDescripcionHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMallaCurricularPensumVigenteSinDescripcionHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMateria_Pensum" />
+  </wsdl:message>
+  <wsdl:message name="GetEstadoEstudianteCarreraHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEstadoEstudianteCarreraHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGradosEstudianteHttpPostIn">
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGradosEstudianteHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDatosGrado" />
+  </wsdl:message>
+  <wsdl:message name="GetHorariosDocenteHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+    <wsdl:part name="strCodPeriodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHorariosDocenteHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfHorarioClase" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasAprobadasHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasAprobadasHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMaterias_aprobadas" />
+  </wsdl:message>
+  <wsdl:message name="GetConvalidacionesHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetConvalidacionesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfConvalidacion" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasNoAprobadasHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasNoAprobadasHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMaterias_no_aprobadas" />
+  </wsdl:message>
+  <wsdl:message name="GetPromocionesEstudianteHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPromocionesEstudianteHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPromocionesEst" />
+  </wsdl:message>
+  <wsdl:message name="GetTitulosEstudianteHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTitulosEstudianteHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTitulosEst" />
+  </wsdl:message>
+  <wsdl:message name="GetActaGradoEstudianteHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+    <wsdl:part name="strCodTitulo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetActaGradoEstudianteHttpPostOut">
+    <wsdl:part name="Body" element="tns:Acta" />
+  </wsdl:message>
+  <wsdl:message name="GetParametrosCarreraHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetParametrosCarreraHttpPostOut">
+    <wsdl:part name="Body" element="tns:ParamCarrera" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoGeneralGradoEstudianteHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+    <wsdl:part name="strCodTitulo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInfoGeneralGradoEstudianteHttpPostOut">
+    <wsdl:part name="Body" element="tns:ActaCalGrado" />
+  </wsdl:message>
+  <wsdl:message name="GetEvaluacionesEscritasGradoHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+    <wsdl:part name="strCodTitulo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEvaluacionesEscritasGradoHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfActaNotasEscritasGrado" />
+  </wsdl:message>
+  <wsdl:message name="GetEvaluacionesOralGradoHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+    <wsdl:part name="strCodTitulo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEvaluacionesOralGradoHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfActasNotasOralesGrado" />
+  </wsdl:message>
+  <wsdl:message name="GetAlumnosMateriaHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCodNivel" type="s:string" />
+    <wsdl:part name="strCodParalelo" type="s:string" />
+    <wsdl:part name="strCodPeriodo" type="s:string" />
+    <wsdl:part name="strCodMateria" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAlumnosMateriaHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEstudiante" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasEstudianteCreditosHttpPostIn">
+    <wsdl:part name="CodCarrera" type="s:string" />
+    <wsdl:part name="Cedula" type="s:string" />
+    <wsdl:part name="CodPeriodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasEstudianteCreditosHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMateriasCre" />
+  </wsdl:message>
+  <wsdl:message name="GetHorarioDocenteHttpPostIn">
+    <wsdl:part name="CodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHorarioDocenteHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfHorarioDocente" />
+  </wsdl:message>
+  <wsdl:message name="GetTitulosDocentesHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTitulosDocentesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTitulosDocente" />
+  </wsdl:message>
+  <wsdl:message name="GetHorarioEstudianteHttpPostIn">
+    <wsdl:part name="CodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHorarioEstudianteHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfHorarioEstudiante" />
+  </wsdl:message>
+  <wsdl:message name="GetTodasMatriculaEstudiantesHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCodPeriodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTodasMatriculaEstudiantesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTodasMatriculaEstudiantes" />
+  </wsdl:message>
+  <wsdl:message name="GetHorarioExamenesEstudianteHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCodPeriodo" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHorarioExamenesEstudianteHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfHorarioExamenesEstudiante" />
+  </wsdl:message>
+  <wsdl:message name="GetTitulosCarreraHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTitulosCarreraHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCarreraTitulos" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosDocenteHttpPostIn">
+    <wsdl:part name="CodCarrera" type="s:string" />
+    <wsdl:part name="Cedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosDocenteHttpPostOut">
+    <wsdl:part name="Body" element="tns:Docente" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosInscInstSexoHttpPostIn">
+    <wsdl:part name="strPeriodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDatosInscInstSexoHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDatosInscritosInstSexo" />
+  </wsdl:message>
+  <wsdl:message name="GetParametrosCarreraTotalHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetParametrosCarreraTotalHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfParametro" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasReprobadosHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strcedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMateriasReprobadosHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMateriasR" />
+  </wsdl:message>
+  <wsdl:message name="GetCreditosAprobadosCSHttpPostIn">
+    <wsdl:part name="CodCarrera" type="s:string" />
+    <wsdl:part name="Cedula" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCreditosAprobadosCSHttpPostOut">
+    <wsdl:part name="Body" element="tns:double" />
+  </wsdl:message>
+  <wsdl:message name="GetHorariosDocenteParaleloHttpPostIn">
+    <wsdl:part name="strCodCarrera" type="s:string" />
+    <wsdl:part name="strCedula" type="s:string" />
+    <wsdl:part name="strCodPeriodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHorariosDocenteParaleloHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfHorarioClaseParalelo" />
+  </wsdl:message>
+  <wsdl:message name="GetInscripcionGratuidadHttpPostIn">
+    <wsdl:part name="strCedula" type="s:string" />
+    <wsdl:part name="strCodCarrera" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInscripcionGratuidadHttpPostOut">
+    <wsdl:part name="Body" element="tns:InscripcionGratuidad" />
+  </wsdl:message>
+  <wsdl:portType name="InfoCarreraSoap">
+    <wsdl:operation name="GetDatosUsuarioCarrera">
+      <wsdl:input message="tns:GetDatosUsuarioCarreraSoapIn" />
+      <wsdl:output message="tns:GetDatosUsuarioCarreraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosEstudianteMatriculado">
+      <wsdl:input message="tns:GetDatosEstudianteMatriculadoSoapIn" />
+      <wsdl:output message="tns:GetDatosEstudianteMatriculadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasEstudiante">
+      <wsdl:input message="tns:GetMateriasEstudianteSoapIn" />
+      <wsdl:output message="tns:GetMateriasEstudianteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasParaleloEstudiante">
+      <wsdl:input message="tns:GetMateriasParaleloEstudianteSoapIn" />
+      <wsdl:output message="tns:GetMateriasParaleloEstudianteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasDocente">
+      <wsdl:input message="tns:GetMateriasDocenteSoapIn" />
+      <wsdl:output message="tns:GetMateriasDocenteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosMateria">
+      <wsdl:input message="tns:GetDatosMateriaSoapIn" />
+      <wsdl:output message="tns:GetDatosMateriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDictadosMateria">
+      <wsdl:input message="tns:GetDictadosMateriaSoapIn" />
+      <wsdl:output message="tns:GetDictadosMateriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUltimasNotasEstudianteCarrera">
+      <wsdl:input message="tns:GetUltimasNotasEstudianteCarreraSoapIn" />
+      <wsdl:output message="tns:GetUltimasNotasEstudianteCarreraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosCompletosEstudiante">
+      <wsdl:input message="tns:GetDatosCompletosEstudianteSoapIn" />
+      <wsdl:output message="tns:GetDatosCompletosEstudianteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInscripcionesEstudiante">
+      <wsdl:input message="tns:GetInscripcionesEstudianteSoapIn" />
+      <wsdl:output message="tns:GetInscripcionesEstudianteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInscripcionesEstudianteNoActivados">
+      <wsdl:input message="tns:GetInscripcionesEstudianteNoActivadosSoapIn" />
+      <wsdl:output message="tns:GetInscripcionesEstudianteNoActivadosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosMatricula">
+      <wsdl:input message="tns:GetDatosMatriculaSoapIn" />
+      <wsdl:output message="tns:GetDatosMatriculaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMallaCurricularPensumVigente">
+      <wsdl:input message="tns:GetMallaCurricularPensumVigenteSoapIn" />
+      <wsdl:output message="tns:GetMallaCurricularPensumVigenteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMallaCurricularPensumVigenteSinDescripcion">
+      <wsdl:input message="tns:GetMallaCurricularPensumVigenteSinDescripcionSoapIn" />
+      <wsdl:output message="tns:GetMallaCurricularPensumVigenteSinDescripcionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEstadoEstudianteCarrera">
+      <wsdl:input message="tns:GetEstadoEstudianteCarreraSoapIn" />
+      <wsdl:output message="tns:GetEstadoEstudianteCarreraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGradosEstudiante">
+      <wsdl:input message="tns:GetGradosEstudianteSoapIn" />
+      <wsdl:output message="tns:GetGradosEstudianteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHorariosDocente">
+      <wsdl:input message="tns:GetHorariosDocenteSoapIn" />
+      <wsdl:output message="tns:GetHorariosDocenteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasAprobadas">
+      <wsdl:input message="tns:GetMateriasAprobadasSoapIn" />
+      <wsdl:output message="tns:GetMateriasAprobadasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConvalidaciones">
+      <wsdl:input message="tns:GetConvalidacionesSoapIn" />
+      <wsdl:output message="tns:GetConvalidacionesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasNoAprobadas">
+      <wsdl:input message="tns:GetMateriasNoAprobadasSoapIn" />
+      <wsdl:output message="tns:GetMateriasNoAprobadasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPromocionesEstudiante">
+      <wsdl:input message="tns:GetPromocionesEstudianteSoapIn" />
+      <wsdl:output message="tns:GetPromocionesEstudianteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTitulosEstudiante">
+      <wsdl:input message="tns:GetTitulosEstudianteSoapIn" />
+      <wsdl:output message="tns:GetTitulosEstudianteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActaGradoEstudiante">
+      <wsdl:input message="tns:GetActaGradoEstudianteSoapIn" />
+      <wsdl:output message="tns:GetActaGradoEstudianteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParametrosCarrera">
+      <wsdl:input message="tns:GetParametrosCarreraSoapIn" />
+      <wsdl:output message="tns:GetParametrosCarreraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoGeneralGradoEstudiante">
+      <wsdl:input message="tns:GetInfoGeneralGradoEstudianteSoapIn" />
+      <wsdl:output message="tns:GetInfoGeneralGradoEstudianteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvaluacionesEscritasGrado">
+      <wsdl:input message="tns:GetEvaluacionesEscritasGradoSoapIn" />
+      <wsdl:output message="tns:GetEvaluacionesEscritasGradoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvaluacionesOralGrado">
+      <wsdl:input message="tns:GetEvaluacionesOralGradoSoapIn" />
+      <wsdl:output message="tns:GetEvaluacionesOralGradoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlumnosMateria">
+      <wsdl:input message="tns:GetAlumnosMateriaSoapIn" />
+      <wsdl:output message="tns:GetAlumnosMateriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasEstudianteCreditos">
+      <wsdl:input message="tns:GetMateriasEstudianteCreditosSoapIn" />
+      <wsdl:output message="tns:GetMateriasEstudianteCreditosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHorarioDocente">
+      <wsdl:input message="tns:GetHorarioDocenteSoapIn" />
+      <wsdl:output message="tns:GetHorarioDocenteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTitulosDocentes">
+      <wsdl:input message="tns:GetTitulosDocentesSoapIn" />
+      <wsdl:output message="tns:GetTitulosDocentesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHorarioEstudiante">
+      <wsdl:input message="tns:GetHorarioEstudianteSoapIn" />
+      <wsdl:output message="tns:GetHorarioEstudianteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTodasMatriculaEstudiantes">
+      <wsdl:input message="tns:GetTodasMatriculaEstudiantesSoapIn" />
+      <wsdl:output message="tns:GetTodasMatriculaEstudiantesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHorarioExamenesEstudiante">
+      <wsdl:input message="tns:GetHorarioExamenesEstudianteSoapIn" />
+      <wsdl:output message="tns:GetHorarioExamenesEstudianteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTitulosCarrera">
+      <wsdl:input message="tns:GetTitulosCarreraSoapIn" />
+      <wsdl:output message="tns:GetTitulosCarreraSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosDocente">
+      <wsdl:input message="tns:GetDatosDocenteSoapIn" />
+      <wsdl:output message="tns:GetDatosDocenteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosInscInstSexo">
+      <wsdl:input message="tns:GetDatosInscInstSexoSoapIn" />
+      <wsdl:output message="tns:GetDatosInscInstSexoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParametrosCarreraTotal">
+      <wsdl:input message="tns:GetParametrosCarreraTotalSoapIn" />
+      <wsdl:output message="tns:GetParametrosCarreraTotalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasReprobados">
+      <wsdl:input message="tns:GetMateriasReprobadosSoapIn" />
+      <wsdl:output message="tns:GetMateriasReprobadosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCreditosAprobadosCS">
+      <wsdl:input message="tns:GetCreditosAprobadosCSSoapIn" />
+      <wsdl:output message="tns:GetCreditosAprobadosCSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHorariosDocenteParalelo">
+      <wsdl:input message="tns:GetHorariosDocenteParaleloSoapIn" />
+      <wsdl:output message="tns:GetHorariosDocenteParaleloSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInscripcionGratuidad">
+      <wsdl:input message="tns:GetInscripcionGratuidadSoapIn" />
+      <wsdl:output message="tns:GetInscripcionGratuidadSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="InfoCarreraHttpGet">
+    <wsdl:operation name="GetDatosUsuarioCarrera">
+      <wsdl:input message="tns:GetDatosUsuarioCarreraHttpGetIn" />
+      <wsdl:output message="tns:GetDatosUsuarioCarreraHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosEstudianteMatriculado">
+      <wsdl:input message="tns:GetDatosEstudianteMatriculadoHttpGetIn" />
+      <wsdl:output message="tns:GetDatosEstudianteMatriculadoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasEstudiante">
+      <wsdl:input message="tns:GetMateriasEstudianteHttpGetIn" />
+      <wsdl:output message="tns:GetMateriasEstudianteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasParaleloEstudiante">
+      <wsdl:input message="tns:GetMateriasParaleloEstudianteHttpGetIn" />
+      <wsdl:output message="tns:GetMateriasParaleloEstudianteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasDocente">
+      <wsdl:input message="tns:GetMateriasDocenteHttpGetIn" />
+      <wsdl:output message="tns:GetMateriasDocenteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosMateria">
+      <wsdl:input message="tns:GetDatosMateriaHttpGetIn" />
+      <wsdl:output message="tns:GetDatosMateriaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDictadosMateria">
+      <wsdl:input message="tns:GetDictadosMateriaHttpGetIn" />
+      <wsdl:output message="tns:GetDictadosMateriaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUltimasNotasEstudianteCarrera">
+      <wsdl:input message="tns:GetUltimasNotasEstudianteCarreraHttpGetIn" />
+      <wsdl:output message="tns:GetUltimasNotasEstudianteCarreraHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosCompletosEstudiante">
+      <wsdl:input message="tns:GetDatosCompletosEstudianteHttpGetIn" />
+      <wsdl:output message="tns:GetDatosCompletosEstudianteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInscripcionesEstudiante">
+      <wsdl:input message="tns:GetInscripcionesEstudianteHttpGetIn" />
+      <wsdl:output message="tns:GetInscripcionesEstudianteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInscripcionesEstudianteNoActivados">
+      <wsdl:input message="tns:GetInscripcionesEstudianteNoActivadosHttpGetIn" />
+      <wsdl:output message="tns:GetInscripcionesEstudianteNoActivadosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosMatricula">
+      <wsdl:input message="tns:GetDatosMatriculaHttpGetIn" />
+      <wsdl:output message="tns:GetDatosMatriculaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMallaCurricularPensumVigenteSinDescripcion">
+      <wsdl:input message="tns:GetMallaCurricularPensumVigenteSinDescripcionHttpGetIn" />
+      <wsdl:output message="tns:GetMallaCurricularPensumVigenteSinDescripcionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEstadoEstudianteCarrera">
+      <wsdl:input message="tns:GetEstadoEstudianteCarreraHttpGetIn" />
+      <wsdl:output message="tns:GetEstadoEstudianteCarreraHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGradosEstudiante">
+      <wsdl:input message="tns:GetGradosEstudianteHttpGetIn" />
+      <wsdl:output message="tns:GetGradosEstudianteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHorariosDocente">
+      <wsdl:input message="tns:GetHorariosDocenteHttpGetIn" />
+      <wsdl:output message="tns:GetHorariosDocenteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasAprobadas">
+      <wsdl:input message="tns:GetMateriasAprobadasHttpGetIn" />
+      <wsdl:output message="tns:GetMateriasAprobadasHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConvalidaciones">
+      <wsdl:input message="tns:GetConvalidacionesHttpGetIn" />
+      <wsdl:output message="tns:GetConvalidacionesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasNoAprobadas">
+      <wsdl:input message="tns:GetMateriasNoAprobadasHttpGetIn" />
+      <wsdl:output message="tns:GetMateriasNoAprobadasHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPromocionesEstudiante">
+      <wsdl:input message="tns:GetPromocionesEstudianteHttpGetIn" />
+      <wsdl:output message="tns:GetPromocionesEstudianteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTitulosEstudiante">
+      <wsdl:input message="tns:GetTitulosEstudianteHttpGetIn" />
+      <wsdl:output message="tns:GetTitulosEstudianteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActaGradoEstudiante">
+      <wsdl:input message="tns:GetActaGradoEstudianteHttpGetIn" />
+      <wsdl:output message="tns:GetActaGradoEstudianteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParametrosCarrera">
+      <wsdl:input message="tns:GetParametrosCarreraHttpGetIn" />
+      <wsdl:output message="tns:GetParametrosCarreraHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoGeneralGradoEstudiante">
+      <wsdl:input message="tns:GetInfoGeneralGradoEstudianteHttpGetIn" />
+      <wsdl:output message="tns:GetInfoGeneralGradoEstudianteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvaluacionesEscritasGrado">
+      <wsdl:input message="tns:GetEvaluacionesEscritasGradoHttpGetIn" />
+      <wsdl:output message="tns:GetEvaluacionesEscritasGradoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvaluacionesOralGrado">
+      <wsdl:input message="tns:GetEvaluacionesOralGradoHttpGetIn" />
+      <wsdl:output message="tns:GetEvaluacionesOralGradoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlumnosMateria">
+      <wsdl:input message="tns:GetAlumnosMateriaHttpGetIn" />
+      <wsdl:output message="tns:GetAlumnosMateriaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasEstudianteCreditos">
+      <wsdl:input message="tns:GetMateriasEstudianteCreditosHttpGetIn" />
+      <wsdl:output message="tns:GetMateriasEstudianteCreditosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHorarioDocente">
+      <wsdl:input message="tns:GetHorarioDocenteHttpGetIn" />
+      <wsdl:output message="tns:GetHorarioDocenteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTitulosDocentes">
+      <wsdl:input message="tns:GetTitulosDocentesHttpGetIn" />
+      <wsdl:output message="tns:GetTitulosDocentesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHorarioEstudiante">
+      <wsdl:input message="tns:GetHorarioEstudianteHttpGetIn" />
+      <wsdl:output message="tns:GetHorarioEstudianteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTodasMatriculaEstudiantes">
+      <wsdl:input message="tns:GetTodasMatriculaEstudiantesHttpGetIn" />
+      <wsdl:output message="tns:GetTodasMatriculaEstudiantesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHorarioExamenesEstudiante">
+      <wsdl:input message="tns:GetHorarioExamenesEstudianteHttpGetIn" />
+      <wsdl:output message="tns:GetHorarioExamenesEstudianteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTitulosCarrera">
+      <wsdl:input message="tns:GetTitulosCarreraHttpGetIn" />
+      <wsdl:output message="tns:GetTitulosCarreraHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosDocente">
+      <wsdl:input message="tns:GetDatosDocenteHttpGetIn" />
+      <wsdl:output message="tns:GetDatosDocenteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosInscInstSexo">
+      <wsdl:input message="tns:GetDatosInscInstSexoHttpGetIn" />
+      <wsdl:output message="tns:GetDatosInscInstSexoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParametrosCarreraTotal">
+      <wsdl:input message="tns:GetParametrosCarreraTotalHttpGetIn" />
+      <wsdl:output message="tns:GetParametrosCarreraTotalHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasReprobados">
+      <wsdl:input message="tns:GetMateriasReprobadosHttpGetIn" />
+      <wsdl:output message="tns:GetMateriasReprobadosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCreditosAprobadosCS">
+      <wsdl:input message="tns:GetCreditosAprobadosCSHttpGetIn" />
+      <wsdl:output message="tns:GetCreditosAprobadosCSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHorariosDocenteParalelo">
+      <wsdl:input message="tns:GetHorariosDocenteParaleloHttpGetIn" />
+      <wsdl:output message="tns:GetHorariosDocenteParaleloHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInscripcionGratuidad">
+      <wsdl:input message="tns:GetInscripcionGratuidadHttpGetIn" />
+      <wsdl:output message="tns:GetInscripcionGratuidadHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="InfoCarreraHttpPost">
+    <wsdl:operation name="GetDatosUsuarioCarrera">
+      <wsdl:input message="tns:GetDatosUsuarioCarreraHttpPostIn" />
+      <wsdl:output message="tns:GetDatosUsuarioCarreraHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosEstudianteMatriculado">
+      <wsdl:input message="tns:GetDatosEstudianteMatriculadoHttpPostIn" />
+      <wsdl:output message="tns:GetDatosEstudianteMatriculadoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasEstudiante">
+      <wsdl:input message="tns:GetMateriasEstudianteHttpPostIn" />
+      <wsdl:output message="tns:GetMateriasEstudianteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasParaleloEstudiante">
+      <wsdl:input message="tns:GetMateriasParaleloEstudianteHttpPostIn" />
+      <wsdl:output message="tns:GetMateriasParaleloEstudianteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasDocente">
+      <wsdl:input message="tns:GetMateriasDocenteHttpPostIn" />
+      <wsdl:output message="tns:GetMateriasDocenteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosMateria">
+      <wsdl:input message="tns:GetDatosMateriaHttpPostIn" />
+      <wsdl:output message="tns:GetDatosMateriaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDictadosMateria">
+      <wsdl:input message="tns:GetDictadosMateriaHttpPostIn" />
+      <wsdl:output message="tns:GetDictadosMateriaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUltimasNotasEstudianteCarrera">
+      <wsdl:input message="tns:GetUltimasNotasEstudianteCarreraHttpPostIn" />
+      <wsdl:output message="tns:GetUltimasNotasEstudianteCarreraHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosCompletosEstudiante">
+      <wsdl:input message="tns:GetDatosCompletosEstudianteHttpPostIn" />
+      <wsdl:output message="tns:GetDatosCompletosEstudianteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInscripcionesEstudiante">
+      <wsdl:input message="tns:GetInscripcionesEstudianteHttpPostIn" />
+      <wsdl:output message="tns:GetInscripcionesEstudianteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInscripcionesEstudianteNoActivados">
+      <wsdl:input message="tns:GetInscripcionesEstudianteNoActivadosHttpPostIn" />
+      <wsdl:output message="tns:GetInscripcionesEstudianteNoActivadosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosMatricula">
+      <wsdl:input message="tns:GetDatosMatriculaHttpPostIn" />
+      <wsdl:output message="tns:GetDatosMatriculaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMallaCurricularPensumVigenteSinDescripcion">
+      <wsdl:input message="tns:GetMallaCurricularPensumVigenteSinDescripcionHttpPostIn" />
+      <wsdl:output message="tns:GetMallaCurricularPensumVigenteSinDescripcionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEstadoEstudianteCarrera">
+      <wsdl:input message="tns:GetEstadoEstudianteCarreraHttpPostIn" />
+      <wsdl:output message="tns:GetEstadoEstudianteCarreraHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGradosEstudiante">
+      <wsdl:input message="tns:GetGradosEstudianteHttpPostIn" />
+      <wsdl:output message="tns:GetGradosEstudianteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHorariosDocente">
+      <wsdl:input message="tns:GetHorariosDocenteHttpPostIn" />
+      <wsdl:output message="tns:GetHorariosDocenteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasAprobadas">
+      <wsdl:input message="tns:GetMateriasAprobadasHttpPostIn" />
+      <wsdl:output message="tns:GetMateriasAprobadasHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConvalidaciones">
+      <wsdl:input message="tns:GetConvalidacionesHttpPostIn" />
+      <wsdl:output message="tns:GetConvalidacionesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasNoAprobadas">
+      <wsdl:input message="tns:GetMateriasNoAprobadasHttpPostIn" />
+      <wsdl:output message="tns:GetMateriasNoAprobadasHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPromocionesEstudiante">
+      <wsdl:input message="tns:GetPromocionesEstudianteHttpPostIn" />
+      <wsdl:output message="tns:GetPromocionesEstudianteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTitulosEstudiante">
+      <wsdl:input message="tns:GetTitulosEstudianteHttpPostIn" />
+      <wsdl:output message="tns:GetTitulosEstudianteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActaGradoEstudiante">
+      <wsdl:input message="tns:GetActaGradoEstudianteHttpPostIn" />
+      <wsdl:output message="tns:GetActaGradoEstudianteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParametrosCarrera">
+      <wsdl:input message="tns:GetParametrosCarreraHttpPostIn" />
+      <wsdl:output message="tns:GetParametrosCarreraHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoGeneralGradoEstudiante">
+      <wsdl:input message="tns:GetInfoGeneralGradoEstudianteHttpPostIn" />
+      <wsdl:output message="tns:GetInfoGeneralGradoEstudianteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvaluacionesEscritasGrado">
+      <wsdl:input message="tns:GetEvaluacionesEscritasGradoHttpPostIn" />
+      <wsdl:output message="tns:GetEvaluacionesEscritasGradoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvaluacionesOralGrado">
+      <wsdl:input message="tns:GetEvaluacionesOralGradoHttpPostIn" />
+      <wsdl:output message="tns:GetEvaluacionesOralGradoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlumnosMateria">
+      <wsdl:input message="tns:GetAlumnosMateriaHttpPostIn" />
+      <wsdl:output message="tns:GetAlumnosMateriaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasEstudianteCreditos">
+      <wsdl:input message="tns:GetMateriasEstudianteCreditosHttpPostIn" />
+      <wsdl:output message="tns:GetMateriasEstudianteCreditosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHorarioDocente">
+      <wsdl:input message="tns:GetHorarioDocenteHttpPostIn" />
+      <wsdl:output message="tns:GetHorarioDocenteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTitulosDocentes">
+      <wsdl:input message="tns:GetTitulosDocentesHttpPostIn" />
+      <wsdl:output message="tns:GetTitulosDocentesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHorarioEstudiante">
+      <wsdl:input message="tns:GetHorarioEstudianteHttpPostIn" />
+      <wsdl:output message="tns:GetHorarioEstudianteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTodasMatriculaEstudiantes">
+      <wsdl:input message="tns:GetTodasMatriculaEstudiantesHttpPostIn" />
+      <wsdl:output message="tns:GetTodasMatriculaEstudiantesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHorarioExamenesEstudiante">
+      <wsdl:input message="tns:GetHorarioExamenesEstudianteHttpPostIn" />
+      <wsdl:output message="tns:GetHorarioExamenesEstudianteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTitulosCarrera">
+      <wsdl:input message="tns:GetTitulosCarreraHttpPostIn" />
+      <wsdl:output message="tns:GetTitulosCarreraHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosDocente">
+      <wsdl:input message="tns:GetDatosDocenteHttpPostIn" />
+      <wsdl:output message="tns:GetDatosDocenteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosInscInstSexo">
+      <wsdl:input message="tns:GetDatosInscInstSexoHttpPostIn" />
+      <wsdl:output message="tns:GetDatosInscInstSexoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParametrosCarreraTotal">
+      <wsdl:input message="tns:GetParametrosCarreraTotalHttpPostIn" />
+      <wsdl:output message="tns:GetParametrosCarreraTotalHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasReprobados">
+      <wsdl:input message="tns:GetMateriasReprobadosHttpPostIn" />
+      <wsdl:output message="tns:GetMateriasReprobadosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCreditosAprobadosCS">
+      <wsdl:input message="tns:GetCreditosAprobadosCSHttpPostIn" />
+      <wsdl:output message="tns:GetCreditosAprobadosCSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHorariosDocenteParalelo">
+      <wsdl:input message="tns:GetHorariosDocenteParaleloHttpPostIn" />
+      <wsdl:output message="tns:GetHorariosDocenteParaleloHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInscripcionGratuidad">
+      <wsdl:input message="tns:GetInscripcionGratuidadHttpPostIn" />
+      <wsdl:output message="tns:GetInscripcionGratuidadHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InfoCarreraSoap" type="tns:InfoCarreraSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <wsdl:operation name="GetDatosUsuarioCarrera">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetDatosUsuarioCarrera" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDatosUsuarioCarreracredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosEstudianteMatriculado">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetDatosEstudianteMatriculado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDatosEstudianteMatriculadocredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasEstudiante">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetMateriasEstudiante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetMateriasEstudiantecredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasParaleloEstudiante">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetMateriasParaleloEstudiante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetMateriasParaleloEstudiantecredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasDocente">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetMateriasDocente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetMateriasDocentecredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosMateria">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetDatosMateria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDatosMateriacredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDictadosMateria">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetDictadosMateria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDictadosMateriacredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUltimasNotasEstudianteCarrera">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetUltimasNotasEstudianteCarrera" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetUltimasNotasEstudianteCarreracredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosCompletosEstudiante">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetDatosCompletosEstudiante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDatosCompletosEstudiantecredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInscripcionesEstudiante">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetInscripcionesEstudiante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetInscripcionesEstudiantecredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInscripcionesEstudianteNoActivados">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetInscripcionesEstudianteNoActivados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetInscripcionesEstudianteNoActivadoscredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosMatricula">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetDatosMatricula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDatosMatriculacredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMallaCurricularPensumVigente">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetMallaCurricularPensumVigente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetMallaCurricularPensumVigentecredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMallaCurricularPensumVigenteSinDescripcion">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetMallaCurricularPensumVigenteSinDescripcion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetMallaCurricularPensumVigenteSinDescripcioncredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEstadoEstudianteCarrera">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetEstadoEstudianteCarrera" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetEstadoEstudianteCarreracredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGradosEstudiante">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetGradosEstudiante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetGradosEstudiantecredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHorariosDocente">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetHorariosDocente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetHorariosDocentecredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasAprobadas">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetMateriasAprobadas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetMateriasAprobadascredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConvalidaciones">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetConvalidaciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetConvalidacionescredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasNoAprobadas">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetMateriasNoAprobadas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetMateriasNoAprobadascredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPromocionesEstudiante">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetPromocionesEstudiante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPromocionesEstudiantecredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTitulosEstudiante">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetTitulosEstudiante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTitulosEstudiantecredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActaGradoEstudiante">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetActaGradoEstudiante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetActaGradoEstudiantecredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParametrosCarrera">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetParametrosCarrera" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetParametrosCarreracredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoGeneralGradoEstudiante">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetInfoGeneralGradoEstudiante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetInfoGeneralGradoEstudiantecredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvaluacionesEscritasGrado">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetEvaluacionesEscritasGrado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetEvaluacionesEscritasGradocredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvaluacionesOralGrado">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetEvaluacionesOralGrado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetEvaluacionesOralGradocredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlumnosMateria">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetAlumnosMateria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAlumnosMateriacredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasEstudianteCreditos">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetMateriasEstudianteCreditos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetMateriasEstudianteCreditoscredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHorarioDocente">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetHorarioDocente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetHorarioDocentecredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTitulosDocentes">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetTitulosDocentes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTitulosDocentescredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHorarioEstudiante">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetHorarioEstudiante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetHorarioEstudiantecredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTodasMatriculaEstudiantes">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetTodasMatriculaEstudiantes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTodasMatriculaEstudiantescredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHorarioExamenesEstudiante">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetHorarioExamenesEstudiante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetHorarioExamenesEstudiantecredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTitulosCarrera">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetTitulosCarrera" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTitulosCarreracredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosDocente">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetDatosDocente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDatosDocentecredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosInscInstSexo">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetDatosInscInstSexo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDatosInscInstSexocredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParametrosCarreraTotal">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetParametrosCarreraTotal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetParametrosCarreraTotalcredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasReprobados">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetMateriasReprobados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetMateriasReprobadoscredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCreditosAprobadosCS">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetCreditosAprobadosCS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCreditosAprobadosCScredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHorariosDocenteParalelo">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetHorariosDocenteParalelo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetHorariosDocenteParalelocredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInscripcionGratuidad">
+      <soap:operation soapAction="http://academico.espoch.edu.ec/GetInscripcionGratuidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetInscripcionGratuidadcredentials" part="credentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="InfoCarreraHttpGet" type="tns:InfoCarreraHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetDatosUsuarioCarrera">
+      <http:operation location="/GetDatosUsuarioCarrera" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosEstudianteMatriculado">
+      <http:operation location="/GetDatosEstudianteMatriculado" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasEstudiante">
+      <http:operation location="/GetMateriasEstudiante" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasParaleloEstudiante">
+      <http:operation location="/GetMateriasParaleloEstudiante" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasDocente">
+      <http:operation location="/GetMateriasDocente" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosMateria">
+      <http:operation location="/GetDatosMateria" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDictadosMateria">
+      <http:operation location="/GetDictadosMateria" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUltimasNotasEstudianteCarrera">
+      <http:operation location="/GetUltimasNotasEstudianteCarrera" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosCompletosEstudiante">
+      <http:operation location="/GetDatosCompletosEstudiante" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInscripcionesEstudiante">
+      <http:operation location="/GetInscripcionesEstudiante" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInscripcionesEstudianteNoActivados">
+      <http:operation location="/GetInscripcionesEstudianteNoActivados" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosMatricula">
+      <http:operation location="/GetDatosMatricula" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMallaCurricularPensumVigenteSinDescripcion">
+      <http:operation location="/GetMallaCurricularPensumVigenteSinDescripcion" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEstadoEstudianteCarrera">
+      <http:operation location="/GetEstadoEstudianteCarrera" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGradosEstudiante">
+      <http:operation location="/GetGradosEstudiante" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHorariosDocente">
+      <http:operation location="/GetHorariosDocente" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasAprobadas">
+      <http:operation location="/GetMateriasAprobadas" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConvalidaciones">
+      <http:operation location="/GetConvalidaciones" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasNoAprobadas">
+      <http:operation location="/GetMateriasNoAprobadas" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPromocionesEstudiante">
+      <http:operation location="/GetPromocionesEstudiante" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTitulosEstudiante">
+      <http:operation location="/GetTitulosEstudiante" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActaGradoEstudiante">
+      <http:operation location="/GetActaGradoEstudiante" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParametrosCarrera">
+      <http:operation location="/GetParametrosCarrera" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoGeneralGradoEstudiante">
+      <http:operation location="/GetInfoGeneralGradoEstudiante" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvaluacionesEscritasGrado">
+      <http:operation location="/GetEvaluacionesEscritasGrado" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvaluacionesOralGrado">
+      <http:operation location="/GetEvaluacionesOralGrado" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlumnosMateria">
+      <http:operation location="/GetAlumnosMateria" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasEstudianteCreditos">
+      <http:operation location="/GetMateriasEstudianteCreditos" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHorarioDocente">
+      <http:operation location="/GetHorarioDocente" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTitulosDocentes">
+      <http:operation location="/GetTitulosDocentes" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHorarioEstudiante">
+      <http:operation location="/GetHorarioEstudiante" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTodasMatriculaEstudiantes">
+      <http:operation location="/GetTodasMatriculaEstudiantes" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHorarioExamenesEstudiante">
+      <http:operation location="/GetHorarioExamenesEstudiante" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTitulosCarrera">
+      <http:operation location="/GetTitulosCarrera" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosDocente">
+      <http:operation location="/GetDatosDocente" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosInscInstSexo">
+      <http:operation location="/GetDatosInscInstSexo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParametrosCarreraTotal">
+      <http:operation location="/GetParametrosCarreraTotal" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasReprobados">
+      <http:operation location="/GetMateriasReprobados" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCreditosAprobadosCS">
+      <http:operation location="/GetCreditosAprobadosCS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHorariosDocenteParalelo">
+      <http:operation location="/GetHorariosDocenteParalelo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInscripcionGratuidad">
+      <http:operation location="/GetInscripcionGratuidad" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="InfoCarreraHttpPost" type="tns:InfoCarreraHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetDatosUsuarioCarrera">
+      <http:operation location="/GetDatosUsuarioCarrera" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosEstudianteMatriculado">
+      <http:operation location="/GetDatosEstudianteMatriculado" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasEstudiante">
+      <http:operation location="/GetMateriasEstudiante" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasParaleloEstudiante">
+      <http:operation location="/GetMateriasParaleloEstudiante" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasDocente">
+      <http:operation location="/GetMateriasDocente" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosMateria">
+      <http:operation location="/GetDatosMateria" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDictadosMateria">
+      <http:operation location="/GetDictadosMateria" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUltimasNotasEstudianteCarrera">
+      <http:operation location="/GetUltimasNotasEstudianteCarrera" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosCompletosEstudiante">
+      <http:operation location="/GetDatosCompletosEstudiante" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInscripcionesEstudiante">
+      <http:operation location="/GetInscripcionesEstudiante" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInscripcionesEstudianteNoActivados">
+      <http:operation location="/GetInscripcionesEstudianteNoActivados" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosMatricula">
+      <http:operation location="/GetDatosMatricula" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMallaCurricularPensumVigenteSinDescripcion">
+      <http:operation location="/GetMallaCurricularPensumVigenteSinDescripcion" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEstadoEstudianteCarrera">
+      <http:operation location="/GetEstadoEstudianteCarrera" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGradosEstudiante">
+      <http:operation location="/GetGradosEstudiante" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHorariosDocente">
+      <http:operation location="/GetHorariosDocente" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasAprobadas">
+      <http:operation location="/GetMateriasAprobadas" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConvalidaciones">
+      <http:operation location="/GetConvalidaciones" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasNoAprobadas">
+      <http:operation location="/GetMateriasNoAprobadas" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPromocionesEstudiante">
+      <http:operation location="/GetPromocionesEstudiante" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTitulosEstudiante">
+      <http:operation location="/GetTitulosEstudiante" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActaGradoEstudiante">
+      <http:operation location="/GetActaGradoEstudiante" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParametrosCarrera">
+      <http:operation location="/GetParametrosCarrera" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoGeneralGradoEstudiante">
+      <http:operation location="/GetInfoGeneralGradoEstudiante" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvaluacionesEscritasGrado">
+      <http:operation location="/GetEvaluacionesEscritasGrado" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvaluacionesOralGrado">
+      <http:operation location="/GetEvaluacionesOralGrado" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlumnosMateria">
+      <http:operation location="/GetAlumnosMateria" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasEstudianteCreditos">
+      <http:operation location="/GetMateriasEstudianteCreditos" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHorarioDocente">
+      <http:operation location="/GetHorarioDocente" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTitulosDocentes">
+      <http:operation location="/GetTitulosDocentes" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHorarioEstudiante">
+      <http:operation location="/GetHorarioEstudiante" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTodasMatriculaEstudiantes">
+      <http:operation location="/GetTodasMatriculaEstudiantes" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHorarioExamenesEstudiante">
+      <http:operation location="/GetHorarioExamenesEstudiante" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTitulosCarrera">
+      <http:operation location="/GetTitulosCarrera" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosDocente">
+      <http:operation location="/GetDatosDocente" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDatosInscInstSexo">
+      <http:operation location="/GetDatosInscInstSexo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParametrosCarreraTotal">
+      <http:operation location="/GetParametrosCarreraTotal" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMateriasReprobados">
+      <http:operation location="/GetMateriasReprobados" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCreditosAprobadosCS">
+      <http:operation location="/GetCreditosAprobadosCS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHorariosDocenteParalelo">
+      <http:operation location="/GetHorariosDocenteParalelo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInscripcionGratuidad">
+      <http:operation location="/GetInscripcionGratuidad" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InfoCarrera">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Este servicio provee información sobre una carrera</documentation>
+    <wsdl:port name="InfoCarreraSoap" binding="tns:InfoCarreraSoap">
+      <soap:address location="http://academico.espoch.edu.ec/OAS_Interop/InfoCarrera.asmx" />
+    </wsdl:port>
+    <wsdl:port name="InfoCarreraHttpGet" binding="tns:InfoCarreraHttpGet">
+      <http:address location="http://academico.espoch.edu.ec/OAS_Interop/InfoCarrera.asmx" />
+    </wsdl:port>
+    <wsdl:port name="InfoCarreraHttpPost" binding="tns:InfoCarreraHttpPost">
+      <http:address location="http://academico.espoch.edu.ec/OAS_Interop/InfoCarrera.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

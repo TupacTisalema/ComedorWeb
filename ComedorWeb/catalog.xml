@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://academico.espoch.edu.ec/OAS_Interop/Seguridad.asmx?WSDL" uri="src/conf/xml-resources/web-service-references/Seguridad/wsdl/academico.espoch.edu.ec/OAS_Interop/Seguridad.asmx.wsdl"/>
+    <system systemId="http://academico.espoch.edu.ec/OAS_Interop/InfoGeneral.asmx?WSDL" uri="src/conf/xml-resources/web-service-references/InfoGeneral/wsdl/academico.espoch.edu.ec/OAS_Interop/InfoGeneral.asmx.wsdl"/>
+    <system systemId="http://academico.espoch.edu.ec/OAS_Interop/InfoCarrera.asmx?WSDL" uri="src/conf/xml-resources/web-service-references/InfoCarrera/wsdl/academico.espoch.edu.ec/OAS_Interop/InfoCarrera.asmx.wsdl"/>
+    <system systemId="http://sarh.espoch.edu.ec/WSInterop.wsdl" uri="src/conf/xml-resources/web-service-references/WSInterop/wsdl/sarh.espoch.edu.ec/WSInterop.wsdl"/>
+</catalog>

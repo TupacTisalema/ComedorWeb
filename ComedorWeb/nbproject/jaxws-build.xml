@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+        *** GENERATED FROM jax-ws.xml - DO NOT EDIT !                             ***
+        *** TO MODIFY wsimport options USE Web Service node -> Edit WS Attributes ***
+        *** TO CHANGE TARGETS GENERATED TO jaxws-build.xml COPY THOSE             ***
+        *** TARGETS TO ../build.xml AND MODIFY THAT FILE INSTEAD                  ***
+
+        --><project xmlns:xalan="http://xml.apache.org/xslt" xmlns:webproject2="http://www.netbeans.org/ns/web-project/2" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+    <!--
+                ===================
+                JAX-WS WSGEN SECTION
+                ===================
+            -->
+    <!--
+                ===================
+                JAX-WS WSIMPORT SECTION
+                ===================
+            -->
+    <target name="wsimport-init" depends="init">
+        <fail if="${wsimport.bad.version}" message="WsImport ant task defined in the classpath ${j2ee.platform.wsimport.classpath} has a serious bug. See http://wiki.netbeans.org/MetroIssue for details."/>
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <property name="j2ee.platform.wsimport.classpath" value="${libs.jaxws21.classpath}"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${java.home}/../lib/tools.jar:${j2ee.platform.wsimport.classpath}:${javac.classpath}"/>
+        </taskdef>
+        <condition property="conf-dir" value="${conf.dir}/" else="">
+            <isset property="conf.dir"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-Seguridad" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/Seguridad"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/Seguridad" destdir="${build.generated.dir}/jax-wsCache/Seguridad" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/Seguridad/wsdl/academico.espoch.edu.ec/OAS_Interop/Seguridad.asmx.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://academico.espoch.edu.ec/OAS_Interop/Seguridad.asmx?WSDL" xnocompile="true" xendorsed="true" package="wsSeguridad">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/Seguridad/wsdl/academico.espoch.edu.ec/OAS_Interop/Seguridad.asmx.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/Seguridad"/>
+            <binding dir="${conf-dir}xml-resources/web-service-references/Seguridad/bindings" includes="Seguridad_handler_1.xml"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/Seguridad">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.classes.dir}">
+            <fileset dir="${build.generated.dir}/jax-wsCache/Seguridad">
+                <include name="**/*.xml"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-Seguridad" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/wsSeguridad"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/Seguridad"/>
+    </target>
+    <target name="wsimport-client-InfoGeneral" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/InfoGeneral"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/InfoGeneral" destdir="${build.generated.dir}/jax-wsCache/InfoGeneral" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/InfoGeneral/wsdl/academico.espoch.edu.ec/OAS_Interop/InfoGeneral.asmx.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://academico.espoch.edu.ec/OAS_Interop/InfoGeneral.asmx?WSDL" xnocompile="true" xendorsed="true" package="wsInfoGeneral">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/InfoGeneral/wsdl/academico.espoch.edu.ec/OAS_Interop/InfoGeneral.asmx.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/InfoGeneral"/>
+            <binding dir="${conf-dir}xml-resources/web-service-references/InfoGeneral/bindings" includes="InfoGeneral_handler_1.xml"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/InfoGeneral">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.classes.dir}">
+            <fileset dir="${build.generated.dir}/jax-wsCache/InfoGeneral">
+                <include name="**/*.xml"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-InfoGeneral" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/wsInfoGeneral"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/InfoGeneral"/>
+    </target>
+    <target name="wsimport-client-InfoCarrera" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/InfoCarrera"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/InfoCarrera" destdir="${build.generated.dir}/jax-wsCache/InfoCarrera" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/InfoCarrera/wsdl/academico.espoch.edu.ec/OAS_Interop/InfoCarrera.asmx.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://academico.espoch.edu.ec/OAS_Interop/InfoCarrera.asmx?WSDL" xnocompile="true" xendorsed="true" package="wsInfoCarrera">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/InfoCarrera/wsdl/academico.espoch.edu.ec/OAS_Interop/InfoCarrera.asmx.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/InfoCarrera"/>
+            <binding dir="${conf-dir}xml-resources/web-service-references/InfoCarrera/bindings" includes="InfoCarrera_handler.xml"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/InfoCarrera">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.classes.dir}">
+            <fileset dir="${build.generated.dir}/jax-wsCache/InfoCarrera">
+                <include name="**/*.xml"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-InfoCarrera" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/wsInfoCarrera"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/InfoCarrera"/>
+    </target>
+    <target name="wsimport-client-WSInterop" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WSInterop"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSInterop" destdir="${build.generated.dir}/jax-wsCache/WSInterop" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/WSInterop/wsdl/sarh.espoch.edu.ec/WSInterop.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://sarh.espoch.edu.ec/WSInterop.wsdl" xnocompile="true" xendorsed="true" package="wsWSInterop">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/WSInterop/wsdl/sarh.espoch.edu.ec/WSInterop.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WSInterop"/>
+            <binding dir="${conf-dir}xml-resources/web-service-references/WSInterop/bindings" includes="WSInterop_handler.xml"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WSInterop">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.classes.dir}">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WSInterop">
+                <include name="**/*.xml"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WSInterop" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/wsWSInterop"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/WSInterop"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-Seguridad, wsimport-client-InfoGeneral, wsimport-client-InfoCarrera, wsimport-client-WSInterop"/>
+</project>

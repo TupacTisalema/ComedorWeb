@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+			 xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+			 xmlns:s="http://www.w3.org/2001/XMLSchema"
+			 xmlns:s0="http://sarh.espoch.edu.ec/"
+			 xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+			 xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+			 xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+			 targetNamespace="http://sarh.espoch.edu.ec/"
+			 xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://sarh.espoch.edu.ec/">
+      <s:element name="getAdministrativos">
+        <s:complexType/>
+      </s:element>
+      <s:element name="getAdministrativosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="Administrativo" type="s0:Administrativo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Administrativo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="strCedula" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="strNombres" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="strCargo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="strClave" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getAdministrativosJefe">
+        <s:complexType/>
+      </s:element>
+      <s:element name="getAdministrativosJefeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="AdministrativoJefe" type="s0:AdministrativoJefe" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AdministrativoJefe">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="strCedula" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="strNombres" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="strCargo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="strClave" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="strCedulaJefe" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="strNombreJefe" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="strCargoJefe" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ValidarAdministrativo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DatosUsuario" type="s0:DatosUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarAdministrativoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DatosUsuarioResponse" type="s0:DatosUsuarioResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DatosUsuario">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="strCedula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strClave" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EmpleadoSMedico">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="strCedula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strNombres" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strApellidos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dtFechaNacimiento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strGenero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strEstadoCivil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strTipoSangre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strCargo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strProcedencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strIESS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strDependencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strDireccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strTelefono" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DatosUsuarioResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="strNombre" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DatosUsuarioMail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="strNombres" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strApellidos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strTipoContrato" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strCargo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strDependencia" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getEmpleados">
+        <s:complexType/>
+      </s:element>
+      <s:element name="getEmpleadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="Empleado" type="s0:Empleado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Empleado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="strCedula" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="strNombres" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="strClave" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getEmpleado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEmpleadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DatosUsuarioResponse" type="s0:DatosUsuarioResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+
+      <!-- MI IMPLEMENTACION ; ademas hay que pasarle el parametro -->
+      <s:element name="getEmpleadosPorApellido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="apellido" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEmpleadosPorApellidoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="EmpleadoDos" type="s0:EmpleadoDos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EmpleadoDos">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="strCedula" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="strNombres" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="strApellidos" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="strCargo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+
+      <s:element name="ValidarEmpleado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DatosUsuario" type="s0:DatosUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarEmpleadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DatosUsuarioResponse" type="s0:DatosUsuarioResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarUsuarioC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DatosUsuario" type="s0:DatosUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarUsuarioCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DatosUsuarioResponse" type="s0:DatosUsuarioResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarEmpleadoSMedico">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DatosUsuario" type="s0:DatosUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarEmpleadoSMedicoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DatosUsuarioResponse" type="s0:DatosUsuarioResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarUsuarioMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DatosUsuario" type="s0:DatosUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarUsuarioMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DatosUsuarioMail" type="s0:DatosUsuarioMail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUsuarioMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUsuarioMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DatosUsuarioMail" type="s0:DatosUsuarioMail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEmpleadoSMedico">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="strCedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEmpleadoSMedicoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmpleadoSMedico" type="s0:EmpleadoSMedico" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEmpleadoSMedico1">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="strCedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEmpleadoSMedicoResponse1">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmpleadoSMedico" type="s0:EmpleadoSMedico" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      
+      <s:element name="UsuarioMailTieneContrato">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="strCedula" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UsuarioMailTieneContratoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="blTieneContrato" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="credentials" type="s0:credentials" />
+      <s:complexType name="credentials">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="username" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="password" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </types>
+
+  <message name="getAdministrativosSoapIn">
+    <part name="parameters" element="s0:getAdministrativos" />
+  </message>
+  <message name="getAdministrativosSoapOut">
+    <part name="parameters" element="s0:getAdministrativosResponse" />
+  </message>
+  <message name="getAdministrativosJefeSoapIn">
+    <part name="parameters" element="s0:getAdministrativosJefe" />
+  </message>
+  <message name="getAdministrativosJefeSoapOut">
+    <part name="parameters" element="s0:getAdministrativosJefeResponse" />
+  </message>
+  <message name="ValidarAdministrativoSoapIn">
+    <part name="parameters" element="s0:ValidarAdministrativo" />
+  </message>
+  <message name="ValidarAdministrativoSoapOut">
+    <part name="parameters" element="s0:ValidarAdministrativoResponse" />
+  </message>
+  <message name="getEmpleadosSoapIn">
+    <part name="parameters" element="s0:getEmpleados" />
+  </message>
+  <message name="getEmpleadosSoapOut">
+    <part name="parameters" element="s0:getEmpleadosResponse" />
+  </message>
+
+  <!-- MI IMPLEMENTACION  -->
+  <message name="getEmpleadosPorApellidoSoapIn">
+    <part name="parameters" element="s0:getEmpleadosPorApellido" />
+  </message>
+  <message name="getEmpleadosPorApellidoSoapOut">
+    <part name="parameters" element="s0:getEmpleadosPorApellidoResponse" />
+  </message>
+
+  <message name="getEmpleadoSoapIn">
+    <part name="parameters" element="s0:getEmpleado" />
+  </message>
+  <message name="getEmpleadoSoapOut">
+    <part name="parameters" element="s0:getEmpleadoResponse" />
+  </message>
+  <message name="ValidarEmpleadoSoapIn">
+    <part name="parameters" element="s0:ValidarEmpleado" />
+  </message>
+  <message name="ValidarEmpleadoSoapOut">
+    <part name="parameters" element="s0:ValidarEmpleadoResponse" />
+  </message>
+  <message name="ValidarUsuarioCSoapIn">
+    <part name="parameters" element="s0:ValidarUsuarioC" />
+  </message>
+  <message name="ValidarUsuarioCSoapOut">
+    <part name="parameters" element="s0:ValidarUsuarioCResponse" />
+  </message>
+  <message name="ValidarEmpleadoSMedicoSoapIn">
+    <part name="parameters" element="s0:ValidarEmpleadoSMedico" />
+  </message>
+  <message name="ValidarEmpleadoSMedicoSoapOut">
+    <part name="parameters" element="s0:ValidarEmpleadoSMedicoResponse" />
+  </message>
+  <message name="ValidarUsuarioMailSoapIn">
+    <part name="parameters" element="s0:ValidarUsuarioMail" />
+  </message>
+  <message name="ValidarUsuarioMailSoapOut">
+    <part name="parameters" element="s0:ValidarUsuarioMailResponse" />
+  </message>
+  <message name="getUsuarioMailSoapIn">
+    <part name="parameters" element="s0:getUsuarioMail" />
+  </message>
+  <message name="getUsuarioMailSoapOut">
+    <part name="parameters" element="s0:getUsuarioMailResponse" />
+  </message>
+  <message name="getEmpleadoSMedicoSoapIn">
+    <part name="parameters" element="s0:getEmpleadoSMedico" />
+  </message>
+  <message name="getEmpleadoSMedicoSoapOut">
+    <part name="parameters" element="s0:getEmpleadoSMedicoResponse" />
+  </message>
+  <message name="getEmpleadoSMedico1SoapIn">
+    <part name="parameters" element="s0:getEmpleadoSMedico" />
+  </message>
+  <message name="getEmpleadoSMedico1SoapOut">
+    <part name="parameters" element="s0:getEmpleadoSMedicoResponse" />
+  </message>
+  <message name="UsuarioMailTieneContratoSoapIn">
+    <part name="parameters" element="s0:UsuarioMailTieneContrato" />
+  </message>
+  <message name="UsuarioMailTieneContratoSoapOut">
+    <part name="parameters" element="s0:UsuarioMailTieneContratoResponse" />
+  </message>
+  <message name="CredentialsMessage">
+    <part name="credentials" element="s0:credentials" />
+  </message>
+  <portType name="WSInteropSoap">
+    <operation name="getAdministrativos">
+      <input message="s0:getAdministrativosSoapIn" />
+      <output message="s0:getAdministrativosSoapOut" />
+    </operation>
+    <operation name="getAdministrativosJefe">
+      <input message="s0:getAdministrativosJefeSoapIn" />
+      <output message="s0:getAdministrativosJefeSoapOut" />
+    </operation>
+    <operation name="ValidarAdministrativo">
+      <input message="s0:ValidarAdministrativoSoapIn" />
+      <output message="s0:ValidarAdministrativoSoapOut" />
+    </operation>
+    <operation name="getEmpleados">
+      <input message="s0:getEmpleadosSoapIn" />
+      <output message="s0:getEmpleadosSoapOut" />
+    </operation>
+    <!-- MI IMPLEMENTACION  -->
+    <operation name="getEmpleadosPorApellido">
+      <input message="s0:getEmpleadosPorApellidoSoapIn" />
+      <output message="s0:getEmpleadosPorApellidoSoapOut" />
+    </operation>
+
+    <operation name="getEmpleado">
+      <input message="s0:getEmpleadoSoapIn" />
+      <output message="s0:getEmpleadoSoapOut" />
+    </operation>
+    <operation name="ValidarEmpleado">
+      <input message="s0:ValidarEmpleadoSoapIn" />
+      <output message="s0:ValidarEmpleadoSoapOut" />
+    </operation>
+    <operation name="ValidarUsuarioC">
+      <input message="s0:ValidarUsuarioCSoapIn" />
+      <output message="s0:ValidarUsuarioCSoapOut" />
+    </operation>
+    <operation name="ValidarEmpleadoSMedico">
+      <input message="s0:ValidarEmpleadoSMedicoSoapIn" />
+      <output message="s0:ValidarEmpleadoSMedicoSoapOut" />
+    </operation>
+    <operation name="ValidarUsuarioMail">
+      <input message="s0:ValidarUsuarioMailSoapIn" />
+      <output message="s0:ValidarUsuarioMailSoapOut" />
+    </operation>
+    <operation name="getUsuarioMail">
+      <input message="s0:getUsuarioMailSoapIn" />
+      <output message="s0:getUsuarioMailSoapOut" />
+    </operation>
+
+    <operation name="getEmpleadoSMedico">
+      <input message="s0:getEmpleadoSMedicoSoapIn" />
+      <output message="s0:getEmpleadoSMedicoSoapOut" />
+    </operation>
+   
+    <operation name="UsuarioMailTieneContrato">
+      <input message="s0:UsuarioMailTieneContratoSoapIn" />
+      <output message="s0:UsuarioMailTieneContratoSoapOut" />
+    </operation>
+  </portType>
+  
+  <binding name="WSInteropSoap" type="s0:WSInteropSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <operation name="getAdministrativos">
+      <soap:operation soapAction="http://sarh.espoch.edu.ec/getAdministrativos" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:CredentialsMessage" part="credentials" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getAdministrativosJefe">
+      <soap:operation soapAction="http://sarh.espoch.edu.ec/getAdministrativosJefe" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:CredentialsMessage" part="credentials" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ValidarAdministrativo">
+      <soap:operation soapAction="http://sarh.espoch.edu.ec/ValidarAdministrativo" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:CredentialsMessage" part="credentials" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getEmpleados">
+      <soap:operation soapAction="http://sarh.espoch.edu.ec/getEmpleados" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:CredentialsMessage" part="credentials" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <!-- MI IMPLEMENTACION  -->
+    <operation name="getEmpleadosPorApellido">
+      <soap:operation soapAction="http://sarh.espoch.edu.ec/getEmpleadosPorApellido" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:CredentialsMessage" part="credentials" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+
+    <operation name="getEmpleado">
+      <soap:operation soapAction="http://sarh.espoch.edu.ec/getEmpleado" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:CredentialsMessage" part="credentials" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ValidarEmpleado">
+      <soap:operation soapAction="http://sarh.espoch.edu.ec/ValidarEmpleado" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:CredentialsMessage" part="credentials" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ValidarUsuarioC">
+      <soap:operation soapAction="http://sarh.espoch.edu.ec/ValidarUsuarioC" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:CredentialsMessage" part="credentials" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ValidarEmpleadoSMedico">
+      <soap:operation soapAction="http://sarh.espoch.edu.ec/ValidarEmpleadoSMedico" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:CredentialsMessage" part="credentials" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ValidarUsuarioMail">
+      <soap:operation soapAction="http://sarh.espoch.edu.ec/ValidarUsuarioMail" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:CredentialsMessage" part="credentials" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getUsuarioMail">
+      <soap:operation soapAction="http://sarh.espoch.edu.ec/getUsuarioMail" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:CredentialsMessage" part="credentials" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+
+
+    <operation name="getEmpleadoSMedico">
+      <soap:operation soapAction="http://sarh.espoch.edu.ec/getEmpleadoSMedico" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:CredentialsMessage" part="credentials" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    
+   
+    <operation name="UsuarioMailTieneContrato">
+      <soap:operation soapAction="http://sarh.espoch.edu.ec/UsuarioMailTieneContrato" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:CredentialsMessage" part="credentials" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="WSInterop">
+    <documentation>Web Service de Interoperabilidad del Sistema de Administracion de Recursos Humanos (SARH) de la ESPOCH.</documentation>
+    <port name="WSInteropSoap" binding="s0:WSInteropSoap">
+      <soap:address location="http://sarh.espoch.edu.ec/WSInterop.php" />
+    </port>
+  </service>
+</definitions>
