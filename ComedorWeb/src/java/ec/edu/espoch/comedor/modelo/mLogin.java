@@ -31,11 +31,6 @@ public class mLogin {
             if (usuario != null) {
                 List<RolCarrera> rol = usuario.getRolCarrera();
                 rol.stream().forEach((Rol) -> {
-                    /*
-                     System.out.println("\nCod Carrera: " + Rol.getCodigoCarrera());
-                     System.out.println("Rol: " + Rol.getNombreRol());
-                     */
-
                     roles.add(Rol);
                 });
             }
