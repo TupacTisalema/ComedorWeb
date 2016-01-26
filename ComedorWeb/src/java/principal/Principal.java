@@ -94,6 +94,10 @@ public class Principal {
          Si el usuario al menos tiene un rol, quiere decir que se encutra
          registrado como estudiante o docente de la poli.
          */
+        
+        /*
+        Tupac
+        */
         System.out.print("Ingrese su numero de cedula con guion:");
         Scanner c = new Scanner(System.in);
         String cedula = c.nextLine();
